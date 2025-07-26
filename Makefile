@@ -22,7 +22,7 @@ install-tools:
 	@echo "Install all tools..."
 	@awk -F '"' '/_/ && !/k8s.io\/code-generator/ { system("go install " $$2) }' tools/tools.go
 	@$(get_mod_code_generator)
-	go install golang.org/x/vuln/cmd/govulncheck@latest
+	go install golang.org/x/vuln/cmd/govulncheck@v1.1.3
 
 ENVTEST_K8S_VERSION = 1.26.1
 ARCHITECTURE = $(shell go env GOARCH)
@@ -76,10 +76,12 @@ manager: generate fmt vet vuln
 # https://github.com/telepresenceio/telepresence is one way to do this (just run
 # `telepresence connect` and services like `test-service.test-namespace.svc.cluster.local`
 # will resolve properly).
-run: generate fmt vet vuln manifests just-run
+#run: generate fmt vet vuln manifests just-run
+run: generate fmt vet manifests just-run
 
 just-run: ## Just runs 'go run main.go' without regenerating any manifests or deploying RBACs
-	KUBE_CONFIG=${HOME}/.kube/config OPERATOR_NAMESPACE=rabbitmq-system ENABLE_WEBHOOKS=false go run ./main.go
+	#KUBE_CONFIG=${HOME}/.kube/config OPERATOR_NAMESPACE=rabbitmq-system ENABLE_WEBHOOKS=false go run ./main.go
+	KUBE_CONFIG=${HOME}/.kube/config OPERATOR_NAMESPACE=openstack-operators ENABLE_WEBHOOKS=false go run ./main.go
 
 # Install CRDs into a cluster
 install: manifests
