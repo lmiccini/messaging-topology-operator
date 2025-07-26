@@ -1,7 +1,9 @@
 domain: rabbitmq.com
 layout:
 - go.kubebuilder.io/v3
-projectName: test
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+projectName: messaging-topology-operator
 repo: github.com/rabbitmq/messaging-topology-operator
 resources:
 - api:
@@ -9,7 +11,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Queue
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -18,7 +19,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Exchange
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -27,7 +27,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Binding
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -36,7 +35,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: User
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -45,7 +43,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Vhost
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -54,7 +51,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Policy
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -63,7 +59,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Permission
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -72,7 +67,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: SchemaReplication
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -81,7 +75,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Federation
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -90,7 +83,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: Shovel
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1
@@ -98,7 +90,6 @@ resources:
     crdVersion: v1
     namespaced: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: SuperStream
   path: github.com/rabbitmq/messaging-topology-operator/api/v1alpha1
   version: v1alpha1
@@ -110,7 +101,6 @@ resources:
     namespaced: true
   controller: true
   domain: rabbitmq.com
-  group: rabbitmq.com
   kind: TopicPermission
   path: github.com/rabbitmq/messaging-topology-operator/api/v1beta1
   version: v1beta1

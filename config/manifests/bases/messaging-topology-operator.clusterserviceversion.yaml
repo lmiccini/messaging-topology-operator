@@ -1,0 +1,162 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+    features.operators.openshift.io/disconnected: "true"
+    features.operators.openshift.io/fips-compliant: "true"
+    features.operators.openshift.io/proxy-aware: "false"
+    features.operators.openshift.io/tls-profiles: "false"
+    features.operators.openshift.io/token-auth-aws: "false"
+    features.operators.openshift.io/token-auth-azure: "false"
+    features.operators.openshift.io/token-auth-gcp: "false"
+    operators.operatorframework.io/operator-type: non-standalone
+  name: messaging-topology-operator.v0.0.1
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: Federations
+      displayName: Federations
+      kind: Federations
+      name: federations.rabbitmq.com
+      version: v1beta1
+    - description: Operatorpolicies
+      displayName: Operatorpolicies
+      kind: Operatorpolicies
+      name: operatorpolicies.rabbitmq.com
+      version: v1beta1
+    - description: Permissions
+      displayName: Permissions
+      kind: Permissions
+      name: permissions.rabbitmq.com
+      version: v1beta1
+    - description: Policies
+      displayName: Policies
+      kind: Policies
+      name: policies.rabbitmq.com
+      version: v1beta1
+    - description: Queues
+      displayName: Queues
+      kind: Queues
+      name: queues.rabbitmq.com
+      version: v1beta1
+    - description: Schemareplications
+      displayName: Schemareplications
+      kind: Schemareplications
+      name: schemareplications.rabbitmq.com
+      version: v1beta1
+    - description: Shovels
+      displayName: Shovels
+      kind: Shovels
+      name: shovels.rabbitmq.com
+      version: v1beta1
+    - description: Superstreams
+      displayName: Superstreams
+      kind: Superstreams
+      name: superstreams.rabbitmq.com
+      version: v1beta1
+    - description: Topicpermissions
+      displayName: Topicpermissions
+      kind: Topicpermissions
+      name: topicpermissions.rabbitmq.com
+      version: v1beta1
+    - description: Users
+      displayName: Users
+      kind: Users
+      name: users.rabbitmq.com
+      version: v1beta1
+    - description: Vhosts
+      displayName: Vhosts
+      kind: Vhosts
+      name: vhosts.rabbitmq.com
+      version: v1beta1
+    - description: Binding is the Schema for the bindings API
+      displayName: Binding
+      kind: Binding
+      name: bindings.rabbitmq.com
+      version: v1beta1
+    - description: Exchange is the Schema for the exchanges API
+      displayName: Exchange
+      kind: Exchange
+      name: exchanges.rabbitmq.com
+      version: v1beta1
+    - description: Federation is the Schema for the federations API
+      displayName: Federation
+      kind: Federation
+      name: federations.rabbitmq.com
+      version: v1beta1
+    - description: Permission is the Schema for the permissions API
+      displayName: Permission
+      kind: Permission
+      name: permissions.rabbitmq.com
+      version: v1beta1
+    - description: Policy is the Schema for the policies API
+      displayName: Policy
+      kind: Policy
+      name: policies.rabbitmq.com
+      version: v1beta1
+    - description: Queue is the Schema for the queues API
+      displayName: Queue
+      kind: Queue
+      name: queues.rabbitmq.com
+      version: v1beta1
+    - description: 'SchemaReplication is the Schema for the schemareplications API
+        This feature requires Tanzu RabbitMQ with schema replication plugin. For more
+        information, see: https://tanzu.vmware.com/rabbitmq and https://www.rabbitmq.com/definitions-standby.html.'
+      displayName: Schema Replication
+      kind: SchemaReplication
+      name: schemareplications.rabbitmq.com
+      version: v1beta1
+    - description: Shovel is the Schema for the shovels API
+      displayName: Shovel
+      kind: Shovel
+      name: shovels.rabbitmq.com
+      version: v1beta1
+    - description: SuperStream is the Schema for the queues API
+      displayName: Super Stream
+      kind: SuperStream
+      name: superstreams.rabbitmq.com
+      version: v1alpha1
+    - description: TopicPermission is the Schema for the topicpermissions API
+      displayName: Topic Permission
+      kind: TopicPermission
+      name: topicpermissions.rabbitmq.com
+      version: v1beta1
+    - description: User is the Schema for the users API.
+      displayName: User
+      kind: User
+      name: users.rabbitmq.com
+      version: v1beta1
+    - description: Vhost is the Schema for the vhosts API
+      displayName: Vhost
+      kind: Vhost
+      name: vhosts.rabbitmq.com
+      version: v1beta1
+  description: Messaging Topology Operator
+  displayName: Messaging Topology Operator
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: true
+    type: OwnNamespace
+  - supported: true
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - rabbitmq
+  links:
+  - name: Messaging Topology Operator
+    url: https://github.com/rabbitmq/messaging-topology-operator
+  maturity: alpha
+  provider:
+    name: RabbitMQ
+    url: https://rabbitmq.com
+  version: 0.0.1

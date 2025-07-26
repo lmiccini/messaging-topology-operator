@@ -1,0 +1,10 @@
+# These resources constitute the fully configured set of manifests
+# used to generate the 'manifests/' directory in an OLM bundle.
+# Required to use the hack/make-olm-bundle.sh script via
+# operator-sdk.
+resources:
+- bases/messaging-topology-operator.clusterserviceversion.yaml
+- ../default/base
+- ../samples/base
+- ../crd
+- ../rbac
