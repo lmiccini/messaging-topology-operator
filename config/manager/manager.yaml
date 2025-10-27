@@ -26,6 +26,10 @@ spec:
         image: controller:latest
         imagePullPolicy: Always
         name: manager
+        volumeMounts:
+        - mountPath: /etc/ssl/certs/rabbitmq-ca.crt
+          name: rabbitmq-ca
+          subPath: ca.crt
         resources:
           limits:
             cpu: 300m
@@ -46,4 +50,9 @@ spec:
           runAsNonRoot: true
           seccompProfile:
             type: RuntimeDefault
+      volumes:
+      - name: rabbitmq-ca
+        secret:
+          defaultMode: 420
+          secretName: rabbitmq-ca
       terminationGracePeriodSeconds: 10

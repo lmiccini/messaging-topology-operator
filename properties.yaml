@@ -1,0 +1,4 @@
+properties:
+  - property:
+      type: product
+      value: openstack
